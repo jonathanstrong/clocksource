@@ -4,22 +4,28 @@ Clocksource allows access to alternate clocksources like the TSC on your Intel x
 
 Unfortunately, this requires we use nightly rust until the asm!() macro is stabilized. We provide fallback for users on stable rust, this should allow zero-cost abstraction of clock_gettime() for stable builds without benefit of the high-performance timing.
 
-The API documentation of this library can be found at
-[docs.rs/clocksource](https://docs.rs/clocksource/).
+[![conduct-badge][]][conduct] [![travis-badge][]][travis] [![downloads-badge][] ![release-badge][]][crate] [![license-badge][]](#license)
 
-[![travis-badge][]][travis] [![downloads-badge][] ![release-badge][]][crate] [![license-badge][]](#license)
-
+[conduct-badge]: https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-blue.svg
 [travis-badge]: https://img.shields.io/travis/brayniac/clocksource/master.svg
 [downloads-badge]: https://img.shields.io/crates/d/clocksource.svg
 [release-badge]: https://img.shields.io/crates/v/clocksource.svg
 [license-badge]: https://img.shields.io/crates/l/clocksource.svg
+[conduct]: https://brayniac.github.io/conduct
 [travis]: https://travis-ci.org/brayniac/clocksource
 [crate]: https://crates.io/crates/clocksource
 [Cargo]: https://github.com/rust-lang/cargo
 
+## Code of Conduct
+
+**NOTE**: All conversations and contributions to this project shall adhere to the [Code of Conduct][conduct]
+
 ## Getting clocksource
 
 add `clocksource` to your dependencies and start using it
+
+The API documentation of this library can be found at
+[docs.rs/clocksource](https://docs.rs/clocksource/).
 
 ## License
 

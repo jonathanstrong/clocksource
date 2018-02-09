@@ -1,6 +1,6 @@
 [package]
 name = "clocksource"
-version = "0.2.3-pre"
+version = "0.2.4-pre"
 authors = ["Brian Martin <brayniac@gmail.com>"]
 
 license = "MIT OR Apache-2.0"
@@ -17,6 +17,9 @@ keywords = [ "clock", "time" ]
 [dependencies]
 allan = "*"
 libc = "0.2.15"
+
+[dev-dependencies]
+allan = "0.2.3"
 
 [features]
 default = ["rdtsc"]
