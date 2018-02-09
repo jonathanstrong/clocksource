@@ -48,10 +48,13 @@
 //! let phase_error = clocksource.phase_error();
 //! ```
 
-#![cfg_attr(feature = "rdtsc", feature(asm))]
+#![cfg_attr(feature = "rdtsc", feature(asm, test))]
 #![deny(warnings)]
 
 extern crate libc;
+
+#[cfg(feature = "rdtsc")]
+extern crate test;
 
 #[derive(Clone)]
 pub struct Clocksource {
@@ -257,6 +260,32 @@ impl Clocksource {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[cfg(feature = "rdtsc")]
+    use test::Bencher;
+
+    #[cfg(feature = "rdtsc")]
+    #[bench]
+    fn calls_rdtsc_directly(b: &mut Bencher) {
+        b.iter(|| rdtsc());
+    }
+
+    #[cfg(feature = "rdtsc")]
+    #[bench]
+    fn it_creates_a_duration(b: &mut Bencher) {
+        b.iter(|| ::test::black_box(::std::time::Duration::new(0, 0)));
+    }
+
+    #[cfg(feature = "rdtsc")]
+    #[bench]
+    fn calls_std_instant_now(b: &mut Bencher) {
+        b.iter(|| ::std::time::Instant::now())
+    }
+
+    #[cfg(feature = "rdtsc")]
+    #[bench]
+    fn calls_std_system_time_now(b: &mut Bencher) {
+        b.iter(|| ::std::time::SystemTime::now())
+    }
 
     #[test]
     fn test_raw() {
