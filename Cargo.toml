@@ -19,6 +19,6 @@ allan = "*"
 libc = "0.2.15"
 
 [features]
-default = []
+default = ["rdtsc"]
 asm = [ "rdtsc" ]
 rdtsc = []
