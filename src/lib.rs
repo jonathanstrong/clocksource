@@ -52,9 +52,12 @@
 #![deny(warnings)]
 
 extern crate libc;
+extern crate triple_buffer;
 
 #[cfg(feature = "rdtsc")]
 extern crate test;
+
+pub mod calibrator;
 
 #[derive(Clone)]
 pub struct Clocksource {
